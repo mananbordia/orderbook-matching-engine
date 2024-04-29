@@ -249,7 +249,7 @@ func (s *OrderService) CancelOrder(oc *types.OrderCancel) error {
 		return err
 	}
 
-	if dbOrder.Status == "OPEN" || dbOrder.Status == "OPEN" {
+	if dbOrder.Status == "OPEN" || dbOrder.Status == "NEW" {
 		res, err := s.engine.CancelOrder(dbOrder)
 		if err != nil {
 			logger.Error(err)
